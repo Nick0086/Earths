@@ -1,0 +1,8 @@
+.NewsLatter{
+    background: url("../../assets/newsLetter.jpg");
+    background-position:  center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+}
