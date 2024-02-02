@@ -105,6 +105,8 @@ function Header({ changeHandler }) {
                         </ul>
                     </nav>
 
+                    <Button classname='ms-2 bg-opacity-90 hover:bg-opacity-90 md:hidden py-3 px-3 rounded-md' onClick={() => setShow(true)}  ><FaBars /></Button>
+
                     {/* header for mobile  */}
                     <div className={`md:hidden z-[999] fixed -translate-x-full top-0 left-0 bg-white w-[240px] h-screen rounded-r-xl shadow-lg p-3 py-4 duration-500 ease-in-out ${show ? "translate-x-0" : ""}`} >
                         <div className='h-[5%] flex justify-between items-center' >
@@ -129,8 +131,6 @@ function Header({ changeHandler }) {
                             }
                         </ul>
                     </div>
-
-                    <Button classname='ms-2 bg-opacity-90 hover:bg-opacity-90 md:hidden py-3 px-3 rounded-md' onClick={() => setShow(true)}  ><FaBars /></Button>
                 </div>
             </div>
         </header>

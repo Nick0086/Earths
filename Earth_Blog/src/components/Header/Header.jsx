@@ -6,8 +6,10 @@ import Button from '../Button'
 import { logout } from '../../store/authSlice'
 import { FaBars } from "react-icons/fa6";
 import { FaWindowClose } from "react-icons/fa";
+import Cookies from 'js-cookie'
+import axios from 'axios'
 
-function Header() {
+function Header({ changeHandler }) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -48,7 +50,16 @@ function Header() {
     ]
 
     const logOutHandler = async () => {
-        console.log("logOutHandler Call")
+        changeHandler(false);
+        axios.post(`${import.meta.env.VITE_URL}/users/logout`)
+            .then((res) => {
+                // Remove JWT token cookie
+                Cookies.remove('JWT');
+                dispatch(logout())
+                navigate('/');
+            })
+            .catch((err) => notify(err.response.message))
+            .finally(() => changeHandler(true))
     }
 
 

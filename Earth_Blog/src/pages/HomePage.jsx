@@ -1,9 +1,11 @@
 import React from 'react'
-
+import { NewsLatter, Slider } from '../components';
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <>
+      <Slider />
+      <NewsLatter />
+    </>
   )
 }
-
 export default HomePage;
