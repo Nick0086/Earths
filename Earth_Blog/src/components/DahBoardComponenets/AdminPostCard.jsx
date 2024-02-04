@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../Button';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner';
 import TimeAgo from '../TimeAgo/TimeAgo';
+import axios from 'axios';
 
 function AdminPostCard({ data, getpost }) {
 
@@ -10,21 +11,19 @@ function AdminPostCard({ data, getpost }) {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 
-    // const deleteHandler = () => {
-    //     if (window.confirm('Are you sure to delete this Post?')) {
-    //         setLoading(false)
+    const deleteHandler = () => {
+        if (window.confirm('Are you sure to delete this Post?')) {
+            setLoading(false);
 
-    //         postService.delatePost(data.$id)
-    //             .then((res) => {
-    //                 if (res) {
-    //                     postService.delatePost(data.Featureimage);
-    //                     navigate('/dashboard');
-    //                 }
-    //             })
-    //             .catch((err) => console.error("err in delete post", err))
-    //             .finally(() => getpost());
-    //     }
-    // }
+            axios.delete(`${import.meta.env.VITE_URL}/posts/delete/${data._id}`)
+            .then((res) => {
+                getpost();
+            })
+            .catch((err) => console.error(err))
+            .finally(() => setLoading(true)); 
+        }
+    };
+    
     // Get Image Url for Featured image
     // useEffect(() => {
     //     postService.getFilePreview(data.Featureimage)
@@ -42,14 +41,16 @@ function AdminPostCard({ data, getpost }) {
                         </div>
                     </div>
                     <div className='md:col-span-6 col-span-full' >
-                        <h3 className='font-semibold text-lg mb-2' >{(data.Title).substring(0, 40) + "..."}</h3>
+                        <h3 className='font-semibold text-lg mb-2 hover:text-lime-700 duration-500' >
+                            <Link to={`/post/${data._id}`} >{(data.Title).substring(0, 40) + "..."}</Link>
+                        </h3>
                         <p className='text-sm font-medium tracking-tighter mb-1' >{data.createdAt.split(' ')[0]}</p>
                         <p className='text-sm font-medium tracking-tight' >{data.view ? `${data.view} views` : "No View"}</p>
                         <p><TimeAgo date={data.createdAt} /> ago</p>
                     </div>
-                    <div className='md:col-span-2 col-span-full  flex flex-row  md:flex-col items-center md:justify-between justify-center gap-2' >
+                    <div className='md:col-span-2 col-span-full  flex flex-row  md:flex-col items-center md:justify-center justify-between  gap-2' >
                         <Button classname='md:w-[70px] md:p-2 bg-blue-600 hover:bg-blue-900 rounded-lg text-sm'  >Edit</Button>
-                        <Button classname='md:w-[70px] md:p-2 bg-red-500 hover:bg-red-900 rounded-lg text-sm'  >Delete</Button>
+                        <Button onClick={deleteHandler} classname='md:w-[70px] md:p-2 bg-red-500 hover:bg-red-900 rounded-lg text-sm'  >Delete</Button>
                     </div>
                 </div> : <Spinner />
             }
