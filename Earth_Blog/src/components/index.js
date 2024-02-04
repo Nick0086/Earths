@@ -9,4 +9,6 @@ import PostForm from "./PostForm/PostForm";
 import DashBoardAsideBar from "./DahBoardComponenets/DashBoardAsideBar";
 import DeshBordHeader from "./DahBoardComponenets/DeshBordHeader";
 import AdminPostShow from "./DahBoardComponenets/AdminPostShow";
-export { PrivateRoutes, Header, Footer, NewsLatter, Slider,LoginForm ,SignUpForm,PostForm , DashBoardAsideBar,DeshBordHeader,AdminPostShow};
+import AllPosts from "./AllPosts/AllPosts";
+import DetailPostCard from "./DetailPostComponents/DetailPostCard";
+export { PrivateRoutes, Header, Footer, NewsLatter, Slider,LoginForm ,SignUpForm,PostForm , DashBoardAsideBar,DeshBordHeader,AdminPostShow,AllPosts,DetailPostCard};

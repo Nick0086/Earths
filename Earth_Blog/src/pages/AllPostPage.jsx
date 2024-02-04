@@ -1,8 +1,13 @@
 import React from 'react'
+import {AllPosts} from '../components/index'
 
 function AllPostPage() {
   return (
-    <div>AllPostPage</div>
+    <div className='bg-gray-50' >
+      <div className='container py-6' >
+        <AllPosts/>
+      </div>
+    </div>
   )
 }
 

@@ -59,7 +59,7 @@ function DashBoardAsideBar({aslidebarhandler,show}) {
   return (
     <div className={`p-4 pe-2 md:sticky top-0 h-[100vh] md:w-auto w-[250px] duration-500 ease-in-out md:block fixed   bg-[#232946] z-50 ${show ? "left-0" : "-left-full"} `} >
         <div className='mb-6 h-[7%] md:block flex justify-between items-center' >
-            <Link className='text-4xl font-bold tracking-wider text-white' >  
+            <Link className='text-4xl font-bold tracking-wider text-white' to='/' >  
                 EARTH
             </Link>
             <Button classname='ms-2 bg-[#444961] hover:bg-[#444944] md:hidden py-3 px-3 rounded-md' onClick={() => aslidebarhandler(false)} ><FaWindowClose /></Button>

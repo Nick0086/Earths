@@ -47,8 +47,19 @@ const router = createBrowserRouter([
           <PrivateRoutes isLoggedIn={true}>
             <AllPostPage />
           </PrivateRoutes>
-        )
+        ),
+        children: [
+          {
+            path: ':category', // Define the category parameter
+            element: (
+              <PrivateRoutes isLoggedIn={true}>
+                <AllPostPage />
+              </PrivateRoutes>
+            )
+          }
+        ]
       },
+
       {
         path: '/editpost/:postid',
         element: (

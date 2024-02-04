@@ -83,7 +83,7 @@ function AdminPostShow() {
     const queryString = queryParams.length > 0 ? `?${queryParams.join("&")}` : "";
     const finalUrl = baseURL + queryString;
 
-    axios.get(finalUrl, userData._id)
+    axios.get(finalUrl, {params : { userId : userData._id}})
       .then((res) => {
         setPosts(res.data.data);
         setPage(res.data.page_no);
