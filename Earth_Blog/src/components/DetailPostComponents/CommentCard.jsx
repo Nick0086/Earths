@@ -9,20 +9,20 @@ function CommentCard({ data,commentDeleteHandler }) {
     const userId = useSelector((state) => state.auth.userData);
 
     useEffect(() => {
-        if(data.Comments.length <= 50){
+        if(data.Comment.length <= 50){
             setFullComment(true)
         }
     },[])
 
     return (
         < >
-            <h4 className='text-base font-medium text-light-green mb-2' >{data.UserName}</h4>
+            <h4 className='text-base font-medium text-light-green mb-2' >{data.userId.name}</h4>
             <p className='text-sm tracking-tight mb-2' >
                 {
-                    FullComment && FullComment ? data.Comments : data.Comments.substring(0, 70) + "..."
+                    FullComment && FullComment ? data.Comment : data.Comment.substring(0, 70) + "..."
                 }
                 {
-                    data.Comments.length >= 50 && <span className='cursor-pointer ms-2 font-medium text-dark-green' onClick={() => setFullComment(!FullComment)}>
+                    data.Comment.length >= 50 && <span className='cursor-pointer ms-2 font-medium text-dark-green' onClick={() => setFullComment(!FullComment)}>
                         {
                             FullComment ? "Load Less" : "Load More"
                         }
@@ -30,13 +30,13 @@ function CommentCard({ data,commentDeleteHandler }) {
                 }
             </p>
             <div className='flex justify-between items-center' > 
-            <p className='text-xs font-extrabold mb-1' ><TimeAgo date={data.$createdAt} /> ago</p>
+            <p className='text-xs font-extrabold mb-1' ><TimeAgo date={data.createdAt} /> ago</p>
             {
-                data.UserId === userId.$id ? <Button onClick={() => commentDeleteHandler(data.$id)} classname='md:w-[auto] md:p-[4px] rounded-md text-xs' >Delete</Button> : ""
+                data.userId._id === userId._id ? <Button onClick={() => commentDeleteHandler(data._id)} classname='md:w-[auto] md:p-[4px] rounded-md text-xs' >Delete</Button> : ""
             }
             </div>
         </>
     )
 }
 
-export default CommentCard
+export default CommentCard;
