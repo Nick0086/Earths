@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Spinner from '../components/Spinner';
+import axios from "axios"
+import { useParams } from 'react-router-dom';
+import { PostForm } from '../components';
 
 function EditPostPage() {
+
+  const [postData, setPostData] = useState();
+  const [loading, setLoading] = useState(false);
+  const {postid} = useParams();
+
+
+  useEffect(() => {
+    setLoading(false)
+    axios.get(`${import.meta.env.VITE_URL}/posts/post/${postid}`)
+      .then((res) => setPostData(res.data.data))
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(true))
+  }, [])
+
   return (
-    <div>EditPostPage</div>
+    <>
+      {
+        loading ? <PostForm editPost={postData} /> : <Spinner/>
+      }
+    </>
   )
 }
 

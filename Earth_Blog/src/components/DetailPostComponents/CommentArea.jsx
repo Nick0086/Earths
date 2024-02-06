@@ -73,7 +73,7 @@ function CommentArea({ data }) {
 
     return (
         <div className='my-5 py-4 border-t-2 border-opacity-50 border-green-700' >
-            <h3 className='text-3xl font-bold mb-3' >Comments <span className='text-2xl font-medium' >({comments && comments.length})</span></h3>
+            <h3 className='text-3xl font-bold mb-3' >Comments <span className='text-2xl font-medium' >({total})</span></h3>
             <form className='grid grid-cols-12 md:gap-x-2 gap-x-1' onSubmit={commentHandler} >
                 <Input
                     placeholder="Enter Your Comment..."

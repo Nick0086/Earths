@@ -7,7 +7,7 @@ import axios from "axios"
 import Cookies from 'js-cookie'; // Import the js-cookie library
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { login } from './store/authSlice';
+import { login, logout } from './store/authSlice';
 import Spinner from './components/Spinner';
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
       })
       .catch((error) => {
         console.log("err", error);
+        dispatch(logout());
       })
       .finally(() => setLoading(true))
   }, [])

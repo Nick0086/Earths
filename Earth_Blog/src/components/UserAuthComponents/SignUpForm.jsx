@@ -22,7 +22,11 @@ function SignUpForm() {
         axios.post(`${import.meta.env.VITE_URL}/users/register`, data)
             .then((res) => {
                 if (res) {
-                    Cookies.set('JWT',res.data.token)
+                    // Calculate expiration time for the cookie (e.g., expires in 2 days)
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 2);
+
+                    Cookies.set('JWT', res.data.token, { expires: expirationDate })
                     dispatch(login(res.data.data))
                     navigate('/');
                 }
@@ -41,8 +45,8 @@ function SignUpForm() {
     }
     useEffect(() => {
         // Add 'show' class to trigger the fade-in animation when component mounts
-        const sliderElement = document.querySelector('.signup');
-        sliderElement.classList.add('show');
+            const sliderElement = document.querySelector('.signup');
+            sliderElement.classList.add('show');
     }, []);
 
     return (

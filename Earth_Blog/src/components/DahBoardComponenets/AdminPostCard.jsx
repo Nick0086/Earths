@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner';
 import TimeAgo from '../TimeAgo/TimeAgo';
 import axios from 'axios';
@@ -49,7 +49,7 @@ function AdminPostCard({ data, getpost }) {
                         <p><TimeAgo date={data.createdAt} /> ago</p>
                     </div>
                     <div className='md:col-span-2 col-span-full  flex flex-row  md:flex-col items-center md:justify-center justify-between  gap-2' >
-                        <Button classname='md:w-[70px] md:p-2 bg-blue-600 hover:bg-blue-900 rounded-lg text-sm'  >Edit</Button>
+                        <Button classname='md:w-[70px] md:p-2 bg-blue-600 hover:bg-blue-900 rounded-lg text-sm' onClick={() => navigate(`/editpost/${data._id}`)} >Edit</Button>
                         <Button onClick={deleteHandler} classname='md:w-[70px] md:p-2 bg-red-500 hover:bg-red-900 rounded-lg text-sm'  >Delete</Button>
                     </div>
                 </div> : <Spinner />

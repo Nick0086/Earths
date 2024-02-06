@@ -22,7 +22,11 @@ function LoginForm() {
         setLoading(false)
         axios.post(`${import.meta.env.VITE_URL}/users/login`, data)
             .then((res) => {
-                Cookies.set('JWT',res.data.token)
+                // Calculate expiration time for the cookie (e.g., expires in 2 days)
+                const expirationDate = new Date();
+                expirationDate.setDate(expirationDate.getDate() + 2);
+
+                Cookies.set('JWT', res.data.token,{ expires: expirationDate })
                 dispatch(login(res.data.data))
                 navigate('/');
             })
