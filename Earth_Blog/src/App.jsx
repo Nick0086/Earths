@@ -23,7 +23,6 @@ function App() {
       .then((response) => {
         if (response) {
           dispatch(login(response.data.data));
-          console.log(response.data)
         }
       })
       .catch((error) => {
