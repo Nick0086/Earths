@@ -62,12 +62,7 @@ function PostForm({ editPost }) {
                     SetLoading(true)
                 })
         } else {
-            axios.post(`${import.meta.env.VITE_URL}/posts/create`, formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data", // Set Content-Type header for FormData
-                    "Access-Control-Allow-Origin": "https://earths-qn1i.vercel.app/"
-                }
-            })
+            axios.post(`${import.meta.env.VITE_URL}/posts/create`, formData)
                 .then((res) => {
                     if (res) {
                         navigate(`/post/${res.data.data._id}`);
