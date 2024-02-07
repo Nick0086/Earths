@@ -62,12 +62,14 @@ function PostForm({ editPost }) {
             try {
                 axios.post(`${import.meta.env.VITE_URL}/posts/create`,{...formData})
                     .then((res) => {
+                        console.log("formData",formData)
                         console.log("post res",res)
                         if (res) {
                             navigate(`/post/${res.data.data._id}`);
                         }
                     })
                     .catch((err) => {
+                        console.log("formData",formData)
                     console.log("err.response",err)
                     notify(err.response)
                     })
