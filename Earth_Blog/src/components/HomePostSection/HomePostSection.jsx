@@ -37,7 +37,8 @@ function HomePostSection() {
                 setPostData(randomePost.slice(0,9))
             }   
         })
-        setLoading(true)
+        .finally(() => setLoading(true))
+        
     }, [])
 
     return (
