@@ -30,7 +30,6 @@ function PostForm({ editPost }) {
 
     // function for submit post or edit post
     const postHandler = async (data) => {
-        console.log("data", data)
 
         SetLoading(false)
         const formData = new FormData();
