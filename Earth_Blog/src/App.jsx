@@ -28,7 +28,6 @@ function App() {
       })
       .catch((error) => {
         console.log("err", error);
-        dispatch(logout());
       })
       .finally(() => setLoading(true))
   }, [])
