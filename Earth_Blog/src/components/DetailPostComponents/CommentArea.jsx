@@ -51,7 +51,6 @@ function CommentArea({ data }) {
     };
 
     const commentDeleteHandler = (id) => {
-        console.log("id", id);
         axios.delete(`${import.meta.env.VITE_URL}/comments/deletecomment/${id}`)
             .then((res) => {
                 if (res) {

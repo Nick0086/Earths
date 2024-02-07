@@ -13,8 +13,6 @@ import Spinner from '../Spinner';
 
 function PostForm({ editPost }) {
 
-    console.log("editPost", editPost)
-
     const { register, handleSubmit, control, formState: { errors }, setValue } = useForm({
         defaultValues: {
             Title: editPost?.Title || '',
@@ -40,9 +38,7 @@ function PostForm({ editPost }) {
         formData.append('Category', data.Category);
         formData.append('file', data.file[0]);
         formData.append('userId', userData._id);  // Append user ID to the form data
-        console.log("formData", formData)
         if (editPost) {
-            console.log("editPost",editPost)
             if(isImageChange){
                 formData.append('imageId', editPost.imageId);
             }else{

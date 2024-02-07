@@ -87,7 +87,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: 'category/:category',
+    path: '/category/:category',
     element: (
       <PrivateRoutes isLoggedIn={true}>
         <DashBordPage />

@@ -16,7 +16,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoading(false)
+    setLoading(false);
     axios.get(`${import.meta.env.VITE_URL}/users`, {
       headers: { "Authorization": Cookies.get('JWT') }
     })
