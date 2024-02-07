@@ -16,13 +16,6 @@ export class AuthService {
     }
 
     async CreateAccount({email,name,password}){
-        console.log(conf.appwriteUrl)
-        console.log(conf.appwriteBucketId)
-        console.log(conf.appwriteCollectionId)
-        console.log(conf.appwriteCommentCollectionId)
-        console.log(conf.appwriteDatabaaseId)
-        console.log(conf.appwriteLikeCollectionId)
-        console.log(conf.appwriteProjectId)
         try {
             const createAccount = await this.account.create(ID.unique(),email,password,name);
             if(createAccount){
@@ -36,13 +29,6 @@ export class AuthService {
     }
 
     async loginUser({email,password}){
-        console.log(conf.appwriteUrl)
-        console.log(conf.appwriteBucketId)
-        console.log(conf.appwriteCollectionId)
-        console.log(conf.appwriteCommentCollectionId)
-        console.log(conf.appwriteDatabaaseId)
-        console.log(conf.appwriteLikeCollectionId)
-        console.log(conf.appwriteProjectId)
         try {
             const respond = await this.account.createEmailSession(email,password);
             return respond;
@@ -52,13 +38,6 @@ export class AuthService {
     }
 
     async getuser(){
-        console.log(conf.appwriteUrl)
-        console.log(conf.appwriteBucketId)
-        console.log(conf.appwriteCollectionId)
-        console.log(conf.appwriteCommentCollectionId)
-        console.log(conf.appwriteDatabaaseId)
-        console.log(conf.appwriteLikeCollectionId)
-        console.log(conf.appwriteProjectId)
         try {
             return await this.account.get();
         } catch (error) {
