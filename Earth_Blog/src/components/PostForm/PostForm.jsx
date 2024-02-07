@@ -59,17 +59,19 @@ function PostForm({ editPost }) {
                     SetLoading(true)
                 })
         } else {
+            data.file = data.file[0];
+            data.Featureimage = data.file[0];
             try {
-                axios.post(`${import.meta.env.VITE_URL}/posts/create`,{...formData})
+                axios.post(`${import.meta.env.VITE_URL}/posts/create`,data)
                     .then((res) => {
-                        console.log("formData",formData)
+                        console.log("formData",data)
                         console.log("post res",res)
                         if (res) {
                             navigate(`/post/${res.data.data._id}`);
                         }
                     })
                     .catch((err) => {
-                        console.log("formData",formData)
+                        console.log("formData",data)
                     console.log("err.response",err)
                     notify(err.response)
                     })
