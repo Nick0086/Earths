@@ -11,4 +11,5 @@ import DeshBordHeader from "./DahBoardComponenets/DeshBordHeader";
 import AdminPostShow from "./DahBoardComponenets/AdminPostShow";
 import AllPosts from "./AllPosts/AllPosts";
 import DetailPostCard from "./DetailPostComponents/DetailPostCard";
-export { PrivateRoutes, Header, Footer, NewsLatter, Slider,LoginForm ,SignUpForm,PostForm , DashBoardAsideBar,DeshBordHeader,AdminPostShow,AllPosts,DetailPostCard};
+import HomePostSection from "./HomePostSection/HomePostSection";
+export { PrivateRoutes, Header, Footer, NewsLatter, Slider,LoginForm ,SignUpForm,PostForm , DashBoardAsideBar,DeshBordHeader,AdminPostShow,AllPosts,DetailPostCard,HomePostSection};

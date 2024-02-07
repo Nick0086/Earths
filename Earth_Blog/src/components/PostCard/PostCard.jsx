@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Parser from 'html-react-parser';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TimeAgo from '../TimeAgo/TimeAgo';
 
 function PostCard({ post }) {
-
-    const [img, setImg] = useState();
-    const navigate = useNavigate();
 
     return (
         <>

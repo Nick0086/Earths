@@ -1,9 +1,10 @@
 import React from 'react'
-import { NewsLatter, Slider } from '../components';
+import { HomePostSection, NewsLatter, Slider } from '../components';
 function HomePage() {
   return (
     <>
       <Slider />
+      <HomePostSection/>
       <NewsLatter />
     </>
   )
