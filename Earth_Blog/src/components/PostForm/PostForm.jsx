@@ -60,7 +60,7 @@ function PostForm({ editPost }) {
                 })
         } else {
             data.file = data.file[0];
-            data.Featureimage = data.file[0];
+            data.Featureimage = data.file;
             try {
                 axios.post(`${import.meta.env.VITE_URL}/posts/create`,data)
                     .then((res) => {
