@@ -18,7 +18,8 @@ function App() {
   useEffect(() => {
     setLoading(false);
     axios.get(`${import.meta.env.VITE_URL}/users`, {
-      headers: { "Authorization": Cookies.get('JWT') }
+      headers: { "Authorization": Cookies.get('JWT'),}
+
     })
       .then((response) => {
         if (response) {

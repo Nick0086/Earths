@@ -46,7 +46,9 @@ function PostForm({ editPost }) {
             }else{
                 formData.delete('file', data.file[0]);
             }
-            axios.put(`${import.meta.env.VITE_URL}/posts/update/${editPost._id}`, formData)
+            axios.put(`${import.meta.env.VITE_URL}/posts/update/${editPost._id}`,{
+                headers: {"Access-Control-Allow-Origin":"https://earths.vercel.app"}
+            }, formData)
             .then((res) => {
                 if (res) {
                     navigate(`/post/${res.data.data._id}`);
@@ -55,7 +57,9 @@ function PostForm({ editPost }) {
             .catch((err) => notify(err.response.message))
             .finally(() => SetLoading(true))
         } else {
-            axios.post(`${import.meta.env.VITE_URL}/posts/create`, formData)
+            axios.post(`${import.meta.env.VITE_URL}/posts/create`,{
+                headers: {"Access-Control-Allow-Origin":"https://earths.vercel.app"}
+            }, formData)
                 .then((res) => {
                     if (res) {
                         navigate(`/post/${res.data.data._id}`);
