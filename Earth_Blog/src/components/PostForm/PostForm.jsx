@@ -62,7 +62,7 @@ function PostForm({ editPost }) {
             data.file = data.file[0];
             data.Featureimage = data.file.name;
             try {
-                axios.post(`${import.meta.env.VITE_URL}/posts/create`,formData)
+                axios.post(`${import.meta.env.VITE_URL}/posts/create`,data)
                     .then((res) => {
                         console.log("formData",data)
                         console.log("post res",res)
@@ -102,7 +102,7 @@ function PostForm({ editPost }) {
             toast.error(`
                         ${errors.Title ? errors.Title.message :
                     errors.Content ? errors.Content.message :
-                        errors.Featureimage ? errors.Featureimage.message : ""}
+                        errors.file ? errors.file.message : ""}
                         `, {
                 position: "top-right",
                 autoClose: 1000,
