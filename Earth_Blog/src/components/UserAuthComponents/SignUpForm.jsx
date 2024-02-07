@@ -26,11 +26,15 @@ function SignUpForm() {
                     const expirationDate = new Date();
                     expirationDate.setDate(expirationDate.getDate() + 2);
                     Cookies.set('JWT', res.data.token, { expires: expirationDate })
+                    console.log("sign up",res)
                     dispatch(login(res.data.data))
                     navigate('/');
                 }
             })
-            .catch((err) => notify(err.response.data.message))
+            .catch((err) => {
+                console.log("sign up err",err)
+                notify(err.response.data.message)
+            })
             .finally(() => setLoading(true))
     }
     const notify = (error) => {

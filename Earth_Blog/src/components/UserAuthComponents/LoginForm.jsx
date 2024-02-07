@@ -26,10 +26,14 @@ function LoginForm() {
                 const expirationDate = new Date();
                 expirationDate.setDate(expirationDate.getDate() + 2);
                 Cookies.set('JWT', res.data.token,{ expires: expirationDate })
+                console.log("login",res.data.data)
                 dispatch(login(res.data.data))
                 navigate('/');
             })
-            .catch((err) => notify(err.response.data))
+            .catch((err) => {
+                console.log("login err",err)
+                notify(err.response.data)
+            })
             .finally(() => setLoading(true))
     }
     const notify = (error) => {

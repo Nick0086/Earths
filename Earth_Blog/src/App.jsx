@@ -23,6 +23,7 @@ function App() {
     })
       .then((response) => {
         if (response) {
+          console.log("users",response)
           dispatch(login(response.data.data));
         }
       })

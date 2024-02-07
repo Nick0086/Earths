@@ -64,11 +64,15 @@ function PostForm({ editPost }) {
                     headers: {"Access-Control-Allow-Origin":"https://earths.vercel.app"}
                 })
                     .then((res) => {
+                        console.log("post res",res)
                         if (res) {
                             navigate(`/post/${res.data.data._id}`);
                         }
                     })
-                    .catch((err) => notify(err.response))
+                    .catch((err) => {
+                    console.log("err.response",err)
+                    notify(err.response)
+                    })
                     .finally(() => {
                         setImagePreview('')
                         SetLoading(true)
