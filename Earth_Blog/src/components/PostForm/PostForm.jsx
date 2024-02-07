@@ -60,7 +60,7 @@ function PostForm({ editPost }) {
                 })
         } else {
             try {
-                axios.post(`${import.meta.env.VITE_URL}/posts/create`,formData)
+                axios.post(`${import.meta.env.VITE_URL}/posts/create`,{...formData})
                     .then((res) => {
                         console.log("post res",res)
                         if (res) {
