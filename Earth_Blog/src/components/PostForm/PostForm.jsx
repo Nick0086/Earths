@@ -30,6 +30,7 @@ function PostForm({ editPost }) {
 
     // function for submit post or edit post
     const postHandler = async (data) => {
+        
         SetLoading(false)
         const formData = new FormData();
         formData.append('Title', data.Title);
