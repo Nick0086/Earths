@@ -71,7 +71,7 @@ function PostForm({ editPost }) {
                         }
                     })
                     .catch((err) => {
-                        console.log("formData",data)
+                        console.log("formData",formData)
                     console.log("err.response",err)
                     notify(err.response)
                     })
