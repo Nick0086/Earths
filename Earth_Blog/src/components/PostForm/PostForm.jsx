@@ -64,7 +64,6 @@ function PostForm({ editPost }) {
         } else {
             axios.post(`${import.meta.env.VITE_URL}/posts/create`, formData, {
                 headers: {
-                    "Content-Type": "multipart/form-data", // Set Content-Type header for FormData
                     "Access-Control-Allow-Origin": "https://earths.vercel.app"
                 }
             })
