@@ -53,7 +53,7 @@ function PostForm({ editPost }) {
                         navigate(`/post/${res.data.data._id}`);
                     }
                 })
-                .catch((err) => notify(err.response.message))
+                .catch((err) => notify(err.response))
                 .finally(() => SetLoading(true))
         } else {
             axios.post(`${import.meta.env.VITE_URL}/posts/create`, {
@@ -64,7 +64,7 @@ function PostForm({ editPost }) {
                         navigate(`/post/${res.data.data._id}`);
                     }
                 })
-                .catch((err) => notify(err.response.message))
+                .catch((err) => notify(err.response))
                 .finally(() => SetLoading(true))
         }
     }
