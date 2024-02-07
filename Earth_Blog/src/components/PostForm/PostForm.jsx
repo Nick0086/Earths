@@ -23,14 +23,14 @@ function PostForm({ editPost }) {
     });
     const [loading, SetLoading] = useState(true);
     const [imagePreview, setImagePreview] = useState();
-    const [isImageChange,setIsImageChange] = useState(false)
+    const [isImageChange, setIsImageChange] = useState(false)
     const userData = useSelector((state) => state.auth.userData)
     const navigate = useNavigate();
 
 
     // function for submit post or edit post
     const postHandler = async (data) => {
-        console.log("data",data)
+        console.log("data", data)
 
         SetLoading(false)
         const formData = new FormData();
@@ -41,24 +41,32 @@ function PostForm({ editPost }) {
         formData.append('file', data.file[0]);
         formData.append('userId', userData._id);  // Append user ID to the form data
         if (editPost) {
-            if(isImageChange){
+            if (isImageChange) {
                 formData.append('imageId', editPost.imageId);
-            }else{
+            } else {
                 formData.delete('file', data.file[0]);
             }
-            axios.put(`${import.meta.env.VITE_URL}/posts/update/${editPost._id}`,{
-                headers: {"Access-Control-Allow-Origin":"https://earths.vercel.app"}
-            }, formData)
-            .then((res) => {
-                if (res) {
-                    navigate(`/post/${res.data.data._id}`);
+            axios.put(`${import.meta.env.VITE_URL}/posts/update/${editPost._id}`, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers":
+                    "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
                 }
-            })
-            .catch((err) => notify(err.response.message))
-            .finally(() => SetLoading(true))
+            }, formData)
+                .then((res) => {
+                    if (res) {
+                        navigate(`/post/${res.data.data._id}`);
+                    }
+                })
+                .catch((err) => notify(err.response.message))
+                .finally(() => SetLoading(true))
         } else {
-            axios.post(`${import.meta.env.VITE_URL}/posts/create`,{
-                headers: {"Access-Control-Allow-Origin":"https://earths.vercel.app"}
+            axios.post(`${import.meta.env.VITE_URL}/posts/create`, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers":
+                    "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+                }
             }, formData)
                 .then((res) => {
                     if (res) {
