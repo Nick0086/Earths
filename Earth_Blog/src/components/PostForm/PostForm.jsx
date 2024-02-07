@@ -48,7 +48,7 @@ function PostForm({ editPost }) {
             axios.put(`${import.meta.env.VITE_URL}/posts/update/${editPost._id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data", // Set Content-Type header for FormData
-                    "Access-Control-Allow-Origin": "https://earths-qn1i.vercel.app/"
+                    "Access-Control-Allow-Origin": "https://earths-jdx7.vercel.app"
                 }
             }, formData)
                 .then((res) => {
@@ -65,7 +65,7 @@ function PostForm({ editPost }) {
             axios.post(`${import.meta.env.VITE_URL}/posts/create`, formData,{
                 headers: {
                     "Content-Type": "multipart/form-data", // Set Content-Type header for FormData
-                    "Access-Control-Allow-Origin": "https://earths-qn1i.vercel.app/"
+                    "Access-Control-Allow-Origin": "https://earths-jdx7.vercel.app/"
                 }
             })
                 .then((res) => {
