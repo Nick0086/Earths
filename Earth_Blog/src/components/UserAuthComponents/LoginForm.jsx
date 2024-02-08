@@ -32,7 +32,7 @@ function LoginForm() {
             })
             .catch((err) => {
                 console.log("login err",err)
-                notify(err.response.data)
+                notify(err.response.data.message)
             })
             .finally(() => setLoading(true))
     }
