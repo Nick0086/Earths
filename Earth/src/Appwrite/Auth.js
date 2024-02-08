@@ -41,7 +41,7 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            console.error("Authservice :: getuser :: error", error);      
+            console.error("Authservice :: getuser :: error", error);
         }
     }
 

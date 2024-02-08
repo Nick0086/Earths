@@ -59,10 +59,9 @@ function PostForm({ editPost }) {
                     SetLoading(true)
                 })
         } else {
-            data.file = data.file[0];
-            data.Featureimage = data.file.name;
+            data.file = data.file[0].name;
             try {
-                axios.post(`${import.meta.env.VITE_URL}/posts/create`,data)
+                axios.post(`${import.meta.env.VITE_URL}/posts/create`,formData)
                     .then((res) => {
                         console.log("formData",data)
                         console.log("post res",res)
