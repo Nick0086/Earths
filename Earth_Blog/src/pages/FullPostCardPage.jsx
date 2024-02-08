@@ -18,15 +18,14 @@ function FullPostCardPage() {
     axios.get(`${import.meta.env.VITE_URL}/posts/post/${postid}`)
       .then((res) => {
         setPost(res.data.data)
-        console.log(res.data.data)
         // fetch data for related posts
-        // axios.get(`${import.meta.env.VITE_URL}/posts/post?category=${res.data.data.Category}&status=Active&limit=60`)
-        //   .then((res) => {
-        //     let relateds = res.data.data.filter((item) => item._id !== postid)
-        //     const shuffledPosts = relateds.sort(() => 0.5 - Math.random());
-        //     const sortPosts = shuffledPosts.slice(0, 3);
-        //     setRelatedPost(sortPosts);
-        //   })
+        axios.get(`${import.meta.env.VITE_URL}/posts/post?category=${res.data.data.Category}&status=Active&limit=60`)
+          .then((res) => {
+            let relateds = res.data.data.filter((item) => item._id !== postid)
+            const shuffledPosts = relateds.sort(() => 0.5 - Math.random());
+            const sortPosts = shuffledPosts.slice(0, 3);
+            setRelatedPost(sortPosts);
+          })
       })
       .catch(() => navigate('/'))
       .finally(() => setLoading(true))
