@@ -5,7 +5,7 @@ import Spinner from '../Spinner';
 import TimeAgo from '../TimeAgo/TimeAgo';
 import axios from 'axios';
 
-function AdminPostCard({ data, getpost,setLoading }) {
+function AdminPostCard({ data,setLoading }) {
 
     const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ function AdminPostCard({ data, getpost,setLoading }) {
 
             axios.delete(`${import.meta.env.VITE_URL}/posts/delete/${data._id}`)
             .then((res) => {
-                getpost();
+                navigate('/dashboard');
             })
             .catch((err) => console.error(err))
             .finally(() => setLoading(true)); 
