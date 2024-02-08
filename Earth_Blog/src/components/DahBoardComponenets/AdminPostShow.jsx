@@ -19,6 +19,8 @@ function AdminPostShow() {
   const userData = useSelector((state) => state.auth.userData);
   const { category } = useParams();
 
+  console.log("userData",userData)
+
   // function for pagination
   const pageHandler = (no) => {
     setPage(no);
