@@ -12,7 +12,7 @@ import Spinner from './components/Spinner';
 
 function App() {
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
