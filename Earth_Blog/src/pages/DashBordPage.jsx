@@ -36,7 +36,6 @@ function DashBordPage() {
     <>
       {
         loading ?
-          <Spinner /> :
           <div className='grid grid-cols-10 bg-[#232946]'>
             <div className={`lg:col-span-2 md:col-span-3 md:block duration-500 ease-in-out  z-[50] ${show ? "bg-black bg-opacity-40 fixed w-screen h-screen " : ""} `}>
               <DashBoardAsideBar aslidebarhandler={aslidebarhandler} show={show} />
@@ -46,6 +45,7 @@ function DashBordPage() {
               <AdminPostShow />
             </div>
           </div>
+          : <Spinner />
       }
     </>
   )
