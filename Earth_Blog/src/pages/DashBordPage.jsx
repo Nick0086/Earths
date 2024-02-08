@@ -4,11 +4,13 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { login } from '../store/authSlice';
 import Spinner from '../components/Spinner';
+import { useDispatch } from 'react-redux';
 
 function DashBordPage() {
 
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch();
 
   const aslidebarhandler = (value) => {
     setShow(value)
