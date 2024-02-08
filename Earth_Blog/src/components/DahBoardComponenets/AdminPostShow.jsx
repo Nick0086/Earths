@@ -138,7 +138,7 @@ function AdminPostShow() {
             </div>
           </div>
           {
-            loading ? userPosts.length !== 0 ? userPosts.map((data) => (<AdminPostCard key={data._id} data={data} getpost={UserPostHandler} />)) :
+            loading ? userPosts.length !== 0 ? userPosts.map((data) => (<AdminPostCard key={data._id} data={data} getpost={UserPostHandler} setLoading={setLoading} />)) :
               <h2 className='text-4xl font-bold flex justify-center items-center h-[70vh] ' >No post available</h2> :
               <Spinner />
           }

@@ -5,11 +5,9 @@ import Spinner from '../Spinner';
 import TimeAgo from '../TimeAgo/TimeAgo';
 import axios from 'axios';
 
-function AdminPostCard({ data, getpost }) {
+function AdminPostCard({ data, getpost,setLoading }) {
 
-    const [img, setImg] = useState();
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
 
     const deleteHandler = () => {
         if (window.confirm('Are you sure to delete this Post?')) {
@@ -32,9 +30,7 @@ function AdminPostCard({ data, getpost }) {
     // })
 
     return (
-        <>
-            {
-                loading ? <div className='grid grid-cols-12 gap-4 my-4 p-4 lg:w-[85%]  mx-auto bg-[#F4F6FF] rounded-lg'>
+        <><div className='grid grid-cols-12 gap-4 my-4 p-4 lg:w-[85%]  mx-auto bg-[#F4F6FF] rounded-lg'>
                     <div className='md:col-span-4 col-span-full flex items-center justify-center' >
                         <div className='rounded-lg overflow-hidden' >
                             <img src={data.Featureimage} className='aspect-video' alt="" />
@@ -52,8 +48,7 @@ function AdminPostCard({ data, getpost }) {
                         <Button classname='md:w-[70px] md:p-2 bg-blue-600 hover:bg-blue-900 rounded-lg text-sm' onClick={() => navigate(`/editpost/${data._id}`)} >Edit</Button>
                         <Button onClick={deleteHandler} classname='md:w-[70px] md:p-2 bg-red-500 hover:bg-red-900 rounded-lg text-sm'  >Delete</Button>
                     </div>
-                </div> : <Spinner />
-            }
+                </div> 
         </>
     )
 }
