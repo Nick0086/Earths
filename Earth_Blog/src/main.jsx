@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          <PrivateRoutes isLoggedIn={false}>
+          <PrivateRoutes isLoggedIn={true}>
             <HomePage />
           </PrivateRoutes>
         ),

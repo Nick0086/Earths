@@ -11,11 +11,9 @@ function PrivateRoutes({ isLoggedIn, children }) {
 
   useEffect(() => {
     if (isLoggedIn && !authStatus) {
-      navigate('/')
+      navigate('/login')
     } else if (!isLoggedIn && authStatus) {
       navigate('/')
-    }else if(!isLoggedIn && !authStatus){
-      navigate('/login')
     }
     setLoading(false);
   }, [isLoggedIn, authStatus, navigate])
