@@ -14,7 +14,6 @@ function AllPosts() {
 
   const [userPosts, setUserPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [category, setCategory] = useState();
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState();
   const {category} = useParams();
