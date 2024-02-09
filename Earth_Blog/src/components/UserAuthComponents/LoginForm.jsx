@@ -24,14 +24,12 @@ function LoginForm() {
             .then((res) => {
                 // Calculate expiration time for the cookie (e.g., expires in 2 days)
                 const expirationDate = new Date();
-                expirationDate.setDate(expirationDate.getDate() + 2);
+                expirationDate.setDate(expirationDate.getDate() + 20);
                 Cookies.set('JWT', res.data.token,{ expires: expirationDate })
-                console.log("login",res.data.data)
                 dispatch(login(res.data.data))
                 navigate('/');
             })
             .catch((err) => {
-                console.log("login err",err)
                 notify(err.response.data.message)
             })
             .finally(() => setLoading(true))
@@ -45,7 +43,6 @@ function LoginForm() {
         }
         );
     }
-
     useEffect(() => {
 
         // Add 'show' class to trigger the fade-in animation when component mounts

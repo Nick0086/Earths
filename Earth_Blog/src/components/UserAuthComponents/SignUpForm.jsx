@@ -24,15 +24,13 @@ function SignUpForm() {
                 if (res) {
                     // Calculate expiration time for the cookie (e.g., expires in 2 days)
                     const expirationDate = new Date();
-                    expirationDate.setDate(expirationDate.getDate() + 2);
+                    expirationDate.setDate(expirationDate.getDate() + 20);
                     Cookies.set('JWT', res.data.token, { expires: expirationDate })
-                    console.log("sign up",res)
                     dispatch(login(res.data.data))
                     navigate('/');
                 }
             })
             .catch((err) => {
-                console.log("sign up err",err)
                 notify(err.response.data.message)
             })
             .finally(() => setLoading(true))

@@ -27,7 +27,7 @@ function DashBordPage() {
         }
       })
       .catch((error) => {
-        console.log("err", error);
+        console.error(error);
       })
       .finally(() => setLoading(true))
   }, [])

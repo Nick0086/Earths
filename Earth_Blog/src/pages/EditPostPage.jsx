@@ -15,7 +15,7 @@ function EditPostPage() {
     setLoading(false)
     axios.get(`${import.meta.env.VITE_URL}/posts/post/${postid}`)
       .then((res) => setPostData(res.data.data))
-      .catch((err) => console.error(err))
+      .catch((err) => console.error(res.res))
       .finally(() => setLoading(true))
   }, [])
 

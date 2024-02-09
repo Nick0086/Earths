@@ -21,13 +21,6 @@ function AdminPostCard({ data,setLoading }) {
             .finally(() => setLoading(true)); 
         }
     };
-    
-    // Get Image Url for Featured image
-    // useEffect(() => {
-    //     postService.getFilePreview(data.Featureimage)
-    //         .then((res) => setImg(res.href))
-    //         .catch((error) => console.error("error in image previwe", error))
-    // })
 
     return (
         <><div className='grid grid-cols-12 gap-4 my-4 p-4 lg:w-[85%]  mx-auto bg-[#F4F6FF] rounded-lg'>
