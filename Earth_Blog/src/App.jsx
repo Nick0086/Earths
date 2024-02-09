@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { Footer, Header } from './components'
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from "axios"
 import Cookies from 'js-cookie'; // Import the js-cookie library
@@ -14,6 +14,7 @@ function App() {
 
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(false);
@@ -23,12 +24,11 @@ function App() {
     })
       .then((response) => {
         if (response) {
-          console.log("users",response)
           dispatch(login(response.data.data));
         }
       })
       .catch((error) => {
-        console.log("err", error);
+        navigate('/login')
       })
       .finally(() => setLoading(true))
   }, [])
