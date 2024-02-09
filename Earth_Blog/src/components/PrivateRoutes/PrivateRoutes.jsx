@@ -14,6 +14,8 @@ function PrivateRoutes({ isLoggedIn, children }) {
       navigate('/')
     } else if (!isLoggedIn && authStatus) {
       navigate('/')
+    }else if(!isLoggedIn && !authStatus){
+      navigate('/login')
     }
     setLoading(false);
   }, [isLoggedIn, authStatus, navigate])

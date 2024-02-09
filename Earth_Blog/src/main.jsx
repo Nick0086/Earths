@@ -15,7 +15,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <HomePage />,
+        element: (
+          <PrivateRoutes isLoggedIn={false}>
+            <HomePage />
+          </PrivateRoutes>
+        ),
       },
       {
         path: '/signup',
