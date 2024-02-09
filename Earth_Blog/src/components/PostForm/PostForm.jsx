@@ -113,7 +113,8 @@ function PostForm({ editPost }) {
             if (userData._id !== editPost.userId._id) {
                 navigate('/')
             }
-            setImagePreview(editPost.Featureimage)
+            const imageUrl = editPost.Featureimage.replace(/^http:\/\//i, 'https://');
+            setImagePreview(imageUrl)
         }
         notify()
     }, [errors]);
